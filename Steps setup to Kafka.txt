@@ -1,0 +1,37 @@
+Steps to setup Kafka in Command Line:
+-------------------------------------
+
+1.) Starting Zookeeper (Terminal - 1)
+
+C:\kafka\bin\windows>     zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+2.) Starting Kafka (Terminal - 2)
+
+C:\kafka\bin\windows>     kafka-server-start.bat ..\..\config\server.properties
+
+3.) Creating a Topic (Terminal - 3)
+
+C:\kafka\bin\windows>     kafka-topics --create --replication-factor 1 --partitions 1 --topic OrderSerDeserTopic --bootstrap-server localhost:9092
+
+4.) List all Topics (Terminal - 3)
+
+C:\kafka\bin\windows>     kafka-topics --list --bootstrap-server localhost:9092
+
+5.) Describing Topic (Terminal - 3)
+
+C:\kafka\bin\windows>     kafka-topics --describe --topic OrderTopic --bootstrap-server localhost:9092
+
+6.) Create a Producer (Terminal - 3)
+
+C:\kafka\bin\windows>     kafka-console-producer --broker-list localhost:9092 --topic OrderTopic
+
+7.) Create a Consumer (Terminal - 4)
+
+C:\kafka\bin\windows>     kafka-console-consumer --bootstrap-server localhost:9092 --topic OrderTopic
+
+8.) Pass data from Producer and Consumer will consume the Data.
+
+Ctrl + z to exit
+
+9.) Delete Topic ( Terminal - 3 )
+C:\kafka\bin\windows> kafka-topics --delete --bootstrap-server localhost:9092 --topic OrderTopic 
